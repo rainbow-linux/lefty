@@ -1,0 +1,3 @@
+# Lefty
+
+Continuous delivery server.
