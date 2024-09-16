@@ -1,0 +1,7 @@
+services:
+  app:
+    container_name: sunshine-lefty
+    image: sparkyluna/lefty:latest
+    stdin_open: true
+    tty: true
+version: '3.8'
