@@ -5,7 +5,8 @@ set_project("lefty")
 set_version("1.0")
 
 -- Add a custom target to build the Docker image
-task("docker")
+target("docker")
+    set_kind("phony")
     on_run(function (target)
         local image_name = "lefty"
         local tag = "latest"
