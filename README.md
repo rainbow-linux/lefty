@@ -35,3 +35,11 @@ object LeftyFile extends Pipeline {
 # The goal
 
 The goal is to have a syntax as close to Bash scripts as possible, while also being close to English as much as possible
+
+# Dependencies
+- for development:
+    - `nickel` (https://nickel-lang.org) for building `docker-compose.yml` with a less insufferable syntax
+    - `podman` or `docker` for builds inside the containers
+    - `xmake` for the build system
+    - `scala` and `sbt`
+    - `docker-compose` (optional)
