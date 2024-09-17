@@ -1,5 +1,5 @@
 # Use an Alpine-based image with OpenJDK
-FROM alpine:latest
+FROM alpine:3.20
 
 # Set the maintainer
 LABEL maintainer="info@yigitovski.com"
