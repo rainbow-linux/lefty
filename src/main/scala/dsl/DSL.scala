@@ -24,24 +24,29 @@ case class Step(name: String, action: () => Unit) {
 }
 
 // A method to simulate shell commands (for demonstration)
-def shell(command: String): Unit = {
-  println(s"    Executing: $command")
+object Shell{
+  def shell(command: String): Unit = {
+    println(s"    Executing: $command")
+  }
 }
 
-// Syntax sugar: allows defining stages and steps with cleaner syntax
-implicit class PipelineOps(pipeline: Pipeline) {
-  def |(stage: Stage): Pipeline = pipeline.stage(stage)
+object DSL {
+  // Syntax sugar: allows defining stages and steps with cleaner syntax
+  implicit class PipelineOps(pipeline: Pipeline) {
+    def |(stage: Stage): Pipeline = pipeline.stage(stage)
+  }
+
+  implicit class StageOps(stage: Stage) {
+    def |(step: Step): Stage = stage.step(step)
+  }
+
+  implicit class StepOps(name: String) {
+    def step(action: => Unit): Step = Step(name, () => action)
+  }
+
+  implicit class StageStringOps(name: String) {
+    def stage(stepsBuilder: => Stage): Stage = Stage(name, stepsBuilder.steps)
+  }
 }
 
-implicit class StageOps(stage: Stage) {
-  def |(step: Step): Stage = stage.step(step)
-}
-
-implicit class StepOps(name: String) {
-  def step(action: => Unit): Step = Step(name, () => action)
-}
-
-implicit class StageStringOps(name: String) {
-  def stage(stepsBuilder: => Stage): Stage = Stage(name, stepsBuilder.steps)
-}
 

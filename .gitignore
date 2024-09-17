@@ -2,3 +2,4 @@ project/target/**
 target/**
 .metals/**
 .xmake/**
+docker-composee.yml
