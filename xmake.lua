@@ -11,6 +11,12 @@ target("docker")
         local image_name = "lefty"
         local tag = "latest"
         os.exec("docker build -t %s:%s .", image_name, tag)
+    end)
+
+-- Docker compose file generator
+target("compose")
+    set_kind("phony")
+    on_run(function (target)
         os.exec("nickel export -f yaml -o docker-compose.yml docker-compose.ncl")
     end)
 
