@@ -2,16 +2,25 @@
 set_project("lefty")
 
 -- Define the version
-set_version("1.0")
+set_version("0.1.0")
 
--- Add a custom target to build the Docker image
+-- for Docker image
 target("docker")
     set_kind("phony")
     on_run(function (target)
         local image_name = "lefty"
-        local tag = "latest"
+        local tag = "0.1.0"
         os.exec("docker build -t %s:%s .", image_name, tag)
     end)
+
+-- for Podman users
+target("podman")
+   set_kind("phony")
+   on_run(function (target)
+      local image_name = "lefty"
+      local tag = "0.1.0"
+      os.exec("podman build -t %s:%s .", image_name, tag)
+   )
 
 -- Docker compose file generator
 target("compose")
