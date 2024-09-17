@@ -3,6 +3,5 @@
 package gay.rainbowlinux.infra.cd.lefty
 
 object LeftyMain extends App {
-    println("Lefty v0.1.0")
-    println(s"on ${System.getProperty("os.name")}")
+    println(s"Lefty v0.1.0 on ${System.getProperty("os.name")}")
 }
