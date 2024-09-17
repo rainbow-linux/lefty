@@ -1,13 +1,14 @@
 # Use an Alpine-based image with OpenJDK
-FROM openjdk:17-alpine
+FROM alpine:3.20
 
 # Set the maintainer
 LABEL maintainer="info@yigitovski.com"
 
 # Install dependencies: bash, curl, and git (git is required for SBT)
-RUN apk add --no-cache bash curl git && \
+RUN apk update && apk upgrade && \
+    apk add --no-cache bash curl git openjdk21 && \
     # Download and install SBT
-    curl -L -o sbt.zip https://github.com/sbt/sbt/releases/download/v1.8.0/sbt-1.8.0.zip && \
+    curl -L -o sbt.zip https://github.com/sbt/sbt/releases/download/v1.10.2/sbt-1.10.2.zip && \
     unzip sbt.zip && rm sbt.zip && \
     chmod +x sbt/bin/sbt && \
     mv sbt /usr/local/sbt && \
