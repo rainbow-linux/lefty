@@ -20,7 +20,7 @@ target("podman")
       local image_name = "lefty"
       local tag = "0.1.0"
       os.exec("podman build -t %s:%s .", image_name, tag)
-   )
+   end)
 
 -- Docker compose file generator
 target("compose")
