@@ -4,7 +4,7 @@ Continuous delivery server that uses Scala for its configuration.
 
 ```scala
 import gay.rainbowlinux.infra.cd.lefty._
-import gay.rainbıwlinux.infra.cd.lefty.DSL._
+import gay.rainbowlinux.infra.cd.lefty.DSL._
 
 object LeftyFile extends Pipeline {
   Lefty run Pipeline |
