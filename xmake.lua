@@ -29,6 +29,12 @@ target("compose")
         os.exec("nickel export -f yaml -o docker-compose.yml docker-compose.ncl")
     end)
 
+-- Clean project
+target("clean-docker")
+   set_kind("phony")
+   on_run(function (target)
+      os.exec("rm -v docker-compose.yml")
+   end)
 -- Default target
 target("build")
     set_kind("phony")
