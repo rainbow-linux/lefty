@@ -49,4 +49,8 @@ object DSL {
   }
 }
 
-
+object Lefty {
+  def run(pipeline: Pipeline) : Unit = {
+    pipeline run
+  }
+}
