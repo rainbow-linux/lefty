@@ -3,3 +3,7 @@ target/**
 .metals/**
 .xmake/**
 docker-composee.yml
+.bloop/**
+project/.bloop
+project/project
+project/target/config-classes
